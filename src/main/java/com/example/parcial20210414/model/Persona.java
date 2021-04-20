@@ -1,4 +1,4 @@
-package model;
+package com.example.parcial20210414.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

@@ -1,17 +1,19 @@
-package service;
+package com.example.parcial20210414.service;
 
-import model.Moneda;
+import com.example.parcial20210414.model.Moneda;
+import com.example.parcial20210414.repository.MonedaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
-import repository.MonedaRepository;
 
 import java.util.List;
 
 @Service
 public class MonedaService {
 
-    private MonedaRepository monedaRepository;
+    @Autowired
+    MonedaRepository monedaRepository;
 
     public List<Moneda> getAll() {
         return monedaRepository.findAll();

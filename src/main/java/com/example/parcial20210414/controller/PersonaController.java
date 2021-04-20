@@ -1,9 +1,9 @@
-package controller;
+package com.example.parcial20210414.controller;
 
-import model.Persona;
+import com.example.parcial20210414.service.PersonaService;
+import com.example.parcial20210414.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.PersonaService;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class PersonaController {
 
     @Autowired
-    private PersonaService personaService;
+    PersonaService personaService;
 
     @PostMapping
     public void add(@RequestBody Persona persona){

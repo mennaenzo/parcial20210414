@@ -1,4 +1,4 @@
-package exception;
+package com.example.parcial20210414.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

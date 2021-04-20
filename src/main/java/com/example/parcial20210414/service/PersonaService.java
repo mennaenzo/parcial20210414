@@ -1,12 +1,11 @@
-package service;
+package com.example.parcial20210414.service;
 
-import model.Persona;
-import model.Representante;
+import com.example.parcial20210414.model.Persona;
+import com.example.parcial20210414.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
-import repository.PersonaRepository;
 
 import java.util.List;
 

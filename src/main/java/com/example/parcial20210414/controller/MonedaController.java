@@ -1,10 +1,9 @@
-package controller;
+package com.example.parcial20210414.controller;
 
-import model.Moneda;
-import model.Persona;
+import com.example.parcial20210414.service.MonedaService;
+import com.example.parcial20210414.model.Moneda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.MonedaService;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 public class MonedaController {
 
     @Autowired
-    private MonedaService monedaService;
+    MonedaService monedaService;
 
     @PostMapping
     public void add(@RequestBody Moneda moneda){

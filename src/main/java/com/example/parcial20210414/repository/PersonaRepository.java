@@ -1,6 +1,6 @@
-package repository;
+package com.example.parcial20210414.repository;
 
-import model.Persona;
+import com.example.parcial20210414.model.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

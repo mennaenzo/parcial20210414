@@ -1,6 +1,6 @@
-package repository;
+package com.example.parcial20210414.repository;
 
-import model.Moneda;
+import com.example.parcial20210414.model.Moneda;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
