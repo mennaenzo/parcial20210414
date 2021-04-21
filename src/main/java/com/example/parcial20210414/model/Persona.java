@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -22,10 +23,12 @@ public abstract class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "El campo nombre es obligatorio.")
+    //@NotNull(message = "El campo nombre es obligatorio.")
+    @NotBlank(message = "El campo nombre es obligatorio y no puede estar vacio.")
     private String nombre;
 
-    @NotNull(message = "El campo apellido es obligatorio.")
+    //@NotNull(message = "El campo apellido es obligatorio.")
+    @NotBlank(message = "El campo apellido es obligatorio y no puede estar vacio.")
     private String apellido;
 
 }
