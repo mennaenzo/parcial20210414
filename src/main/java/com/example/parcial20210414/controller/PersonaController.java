@@ -36,7 +36,7 @@ public class PersonaController {
     }
 
     @PutMapping("/{idRepresentante}/jugador/{idJugador}")
-    public void addJugadorToRepresentante(@PathVariable Integer idRepresentante, @PathVariable List<Integer> idJugadores){
-        personaService.addJugadorToRepresentante(idRepresentante, idJugadores);
+    public void addJugadorToRepresentante(@PathVariable Integer idRepresentante, @PathVariable Integer idJugador){
+        personaService.addJugadorToRepresentante(idRepresentante, idJugador);
     }
 }

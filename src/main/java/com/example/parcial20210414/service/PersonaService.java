@@ -37,18 +37,19 @@ public class PersonaService {
         personaRepository.deleteById(id);
     }
 
-    public void addJugadorToRepresentante(Integer idRepresentante, List<Integer> idJugadores) {
+    public void addJugadorToRepresentante(Integer idRepresentante, Integer idJugador) {
 
-        if (personaRepository.findById(idRepresentante).getClass().equals(Representante.class)){
-            Representante representante = (Representante) getById(idRepresentante);
-            for (Integer idJugador: idJugadores) {
-                if (personaRepository.findById(idJugador).getClass().equals(Jugador.class)){
-                    Jugador jugador = (Jugador) getById(idJugador);
-                    representante.getJugadores().add(jugador);
-                }
+        Representante representante = getById(idRepresentante) instanceof Representante ? ((Representante) getById(idRepresentante)) : null;
+
+        if (representante != null)
+        {
+            Jugador jugador = getById(idJugador) instanceof Jugador ? ((Jugador) getById(idJugador)) : null;
+            if (jugador != null)
+            {
+                representante.getJugadores().add(jugador);
+                personaRepository.save(representante);
             }
         }
-
     }
 
 }
