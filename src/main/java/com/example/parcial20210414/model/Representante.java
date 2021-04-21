@@ -15,7 +15,23 @@ public class Representante extends Persona{
     @JoinColumn(name = "jugador_id")
     private List<Jugador> jugadores;
 
-    private Float pesoBoveda;
+    private Double pesoBoveda;
 
-    private Float montoTotal;
+    private Double montoTotal;
+
+    public Double getMontoTotal() {
+        return jugadores.stream()
+                .map(Jugador::getValor)
+                .mapToDouble(n ->
+                {
+                    if (n.getDescripcion().equals("DOLAR")) {
+                        return n.getMonto() * 120;
+                    }else if (n.getDescripcion().equals("EUROS")){
+                        return n.getMonto() * 150;
+                    }
+                    return 0;
+                }
+                ).reduce(0, Double::sum);
+    }
+
 }
