@@ -34,4 +34,8 @@ public class Representante extends Persona{
                 ).reduce(0, Double::sum);
     }
 
+    public Double getPesoBoveda() {
+        return getMontoTotal() / 100;
+    }
+
 }
