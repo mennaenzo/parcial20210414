@@ -1,5 +1,6 @@
 package com.example.parcial20210414.controller;
 
+import com.example.parcial20210414.model.Jugador;
 import com.example.parcial20210414.service.PersonaService;
 import com.example.parcial20210414.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class PersonaController {
     }
 
     @PutMapping("/{idRepresentante}/jugador/{idJugador}")
-    public void addJugadorToRepresentante(@PathVariable Integer idRepresentante, @PathVariable Integer idJugador){
-        personaService.addJugadorToRepresentante(idRepresentante, idJugador);
+    public void addJugadorToRepresentante(@PathVariable Integer idRepresentante, @PathVariable List<Integer> idJugadores){
+        personaService.addJugadorToRepresentante(idRepresentante, idJugadores);
     }
 }

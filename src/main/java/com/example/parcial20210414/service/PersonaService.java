@@ -1,6 +1,8 @@
 package com.example.parcial20210414.service;
 
+import com.example.parcial20210414.model.Jugador;
 import com.example.parcial20210414.model.Persona;
+import com.example.parcial20210414.model.Representante;
 import com.example.parcial20210414.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,8 +37,18 @@ public class PersonaService {
         personaRepository.deleteById(id);
     }
 
-    public void addJugadorToRepresentante(Integer idRepresentante, Integer idJugador) {
-        //Validar que sea un representente
+    public void addJugadorToRepresentante(Integer idRepresentante, List<Integer> idJugadores) {
+
+        if (personaRepository.findById(idRepresentante).getClass().equals(Representante.class)){
+            Representante representante = (Representante) getById(idRepresentante);
+            for (Integer idJugador: idJugadores) {
+                if (personaRepository.findById(idJugador).getClass().equals(Jugador.class)){
+                    Jugador jugador = (Jugador) getById(idJugador);
+                    representante.getJugadores().add(jugador);
+                }
+            }
+        }
 
     }
+
 }

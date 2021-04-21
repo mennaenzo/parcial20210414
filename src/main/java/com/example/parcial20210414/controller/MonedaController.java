@@ -25,7 +25,7 @@ public class MonedaController {
     }
 
     @GetMapping("/{id}")
-    public Moneda getPersonaById(@PathVariable Integer id){
+    public Moneda getMonedaById(@PathVariable Integer id){
         return monedaService.getById(id);
     }
 
