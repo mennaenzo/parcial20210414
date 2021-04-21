@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -15,9 +16,15 @@ public class Representante extends Persona{
     @JoinColumn(name = "jugador_id")
     private List<Jugador> jugadores;
 
+    @NotNull(message = "El campo pesoBoveda es obligatorio.")
     private Double pesoBoveda;
 
+    @NotNull(message = "El campo montoTotal es obligatorio.")
     private Double montoTotal;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "amigo_id")
+    private List<Amigo> amigos;
 
     public Double getMontoTotal() {
         return jugadores.stream()

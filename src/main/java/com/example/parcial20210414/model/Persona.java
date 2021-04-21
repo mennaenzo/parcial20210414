@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -15,7 +15,8 @@ import javax.validation.constraints.NotNull;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "tipoPersona", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Representante.class, name = "REPRESENTANTE"),
-        @JsonSubTypes.Type(value = Jugador.class, name = "JUGADOR")
+        @JsonSubTypes.Type(value = Jugador.class, name = "JUGADOR"),
+        @JsonSubTypes.Type(value = Amigo.class, name = "AMIGO")
 })
 public abstract class Persona {
 
@@ -31,4 +32,7 @@ public abstract class Persona {
     @NotBlank(message = "El campo apellido es obligatorio y no puede estar vacio.")
     private String apellido;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cumpleanitos_id")
+    private Set<Cumpleanitos> cumpleanitos;
 }
